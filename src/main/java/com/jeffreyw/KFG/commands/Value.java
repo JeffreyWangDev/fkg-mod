@@ -1,6 +1,7 @@
 package com.jeffreyw.KFG.commands;
 
 import com.jeffreyw.KFG.utils.ChatUtils;
+import com.jeffreyw.KFG.utils.Constants;
 import com.jeffreyw.KFG.utils.ItemsAttrs;
 import com.jeffreyw.KFG.utils.Requests;
 import net.minecraft.client.Minecraft;
@@ -22,6 +23,10 @@ import java.util.List;
 public class Value extends CommandBase {
     private GuiNewChat chat;
 
+    public String getCommandInfo(){
+        return EnumChatFormatting.BLUE + "value (v)"+EnumChatFormatting.GOLD+": Run this command the value of the item you are holding";
+    }
+
     @Override
     public String getCommandName() {
         return "value";
@@ -29,16 +34,10 @@ public class Value extends CommandBase {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "";
+        return Constants.prefix + EnumChatFormatting.DARK_RED
+                + "Correct Usage: " + EnumChatFormatting.RED
+                + "/" + getCommandName() + " (Hold the item in your hand when running, it NEEDS to be kuudra loot)";
     }
-
-//    @Override
-//    public String getCommandUsage(ICommandSender sender) {
-//        return Constants.prefix + EnumChatFormatting.DARK_RED
-//                + "Correct Usage: " + EnumChatFormatting.RED
-//                + "/" + getCommandName() + " <attribute> <item> <from> <to>\n"
-//                + EnumChatFormatting.RED + "Make sure to enter attributes and items without spaces.";
-//    }
 
     @Override
     public List<String> getCommandAliases() {
@@ -67,7 +66,6 @@ public class Value extends CommandBase {
                         @Override
                         public void onResponse(String resp) {
                             boolean add_first = true;
-//                            sender.addChatMessage(new ChatComponentText(resp));
                             for(String i:resp.split("NEWLN")){
                                 sender.addChatMessage(ChatUtils.decodeToFancyChatMessage(i,add_first));
                                 add_first = false;
@@ -76,12 +74,13 @@ public class Value extends CommandBase {
                         @Override
                         public void onError(Exception e) {
                             sender.addChatMessage(new ChatComponentText(
-                                    e.toString()
+                                    EnumChatFormatting.DARK_RED+"Connection error: " + EnumChatFormatting.DARK_PURPLE+ e.toString()
                             ));
                         }
                     });
         }catch (Exception e){
             sender.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED+"This item is not kuudra loot!"));
+            this.wrongUsage(sender);
         }
 
     }

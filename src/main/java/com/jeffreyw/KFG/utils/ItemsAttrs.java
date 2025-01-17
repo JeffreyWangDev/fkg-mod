@@ -27,8 +27,8 @@ public class ItemsAttrs {
 
         NBTTagCompound attributes = data.getCompoundTag("ExtraAttributes").getCompoundTag("attributes");
 
-        Console.println(attributes.toString());
-        Console.println(data.toString());
+//        Console.println(attributes.toString());
+//        Console.println(data.toString());
         this.attr1 = attributes.getKeySet().toArray()[0].toString();
         this.lvl1 = attributes.getInteger(this.attr1);
 
