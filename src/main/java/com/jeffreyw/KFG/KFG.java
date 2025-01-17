@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 @Mod(modid = KFG.MODID, version = KFG.VERSION)
 public class KFG {
     public static final String MODID = "KFG";
-    public static final String VERSION = "BETA-0.0.1";
+    public static final String VERSION = "BETA-0.0.2";
 
     @EventHandler
     public void init(FMLInitializationEvent event)
