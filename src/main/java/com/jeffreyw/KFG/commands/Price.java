@@ -74,7 +74,7 @@ public class Price  extends CommandBase {
                         @Override
                         public void onResponse(String resp) {
                             boolean add_first = true;
-                            sender.addChatMessage(new ChatComponentText(resp));
+//                            sender.addChatMessage(new ChatComponentText(resp));
                             for(String i:resp.split("NEWLN")){
                                 sender.addChatMessage(ChatUtils.decodeToFancyChatMessage(i,add_first));
                                 add_first = false;
