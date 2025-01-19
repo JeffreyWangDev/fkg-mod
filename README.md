@@ -3,7 +3,7 @@
 ## Overview
 
 FKG Mod is a Minecraft mod designed specifically for Hypixel Skyblock. It helps players get prices for Kuudra items efficiently.
-
+This is a free version of the kuudra gang mod! It offers a FREE attribute upgrade command
 ## Installation
 
 1. Download the latest version of the mod from the [releases page](https://github.com/jeffreywangdev/fkg-mod/releases).
@@ -15,10 +15,8 @@ FKG Mod is a Minecraft mod designed specifically for Hypixel Skyblock. It helps 
 To use the mod, simply type the following command in the chat:
 
 ```
-/value
+/fkg (this will show all commands)
 ```
-
-This command will fetch and display the price of the Kuudra item you are holding.
 
 
 ## Support
