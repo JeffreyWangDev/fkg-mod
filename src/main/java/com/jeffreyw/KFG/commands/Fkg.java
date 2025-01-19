@@ -1,5 +1,6 @@
 package com.jeffreyw.KFG.commands;
 
+import com.jeffreyw.KFG.KFG;
 import com.jeffreyw.KFG.utils.Constants;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -9,6 +10,8 @@ import net.minecraft.util.EnumChatFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.jeffreyw.KFG.utils.Version.checkVersion;
 
 public class Fkg extends CommandBase {
     public String getCommandInfo(){
@@ -42,9 +45,12 @@ public class Fkg extends CommandBase {
         commands.add(this.getCommandInfo());
         commands.add(new Value().getCommandInfo());
         commands.add(new Price().getCommandInfo());
-
+        boolean latestVersion = checkVersion(KFG.VERSION);
         for (String cmInfo : commands) {
             sender.addChatMessage(new ChatComponentText("   "+cmInfo));
+        }
+        if (!latestVersion) {
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "You are not latest version!"));
         }
     }
 }
