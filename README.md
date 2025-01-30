@@ -2,6 +2,8 @@
 
 ## Overview
 
+[Modrinth](https://modrinth.com/mod/fkg)
+
 FKG Mod is a Minecraft mod designed specifically for Hypixel Skyblock. It helps players get prices for Kuudra items efficiently.
 This is a free version of the kuudra gang mod! It offers a FREE attribute upgrade command
 ## Installation
